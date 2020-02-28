@@ -1,23 +1,31 @@
-# Hello world docker action
+# Cargo Static Build Docker Action
 
-This action prints "Hello World" to the log or "Hello" + the name of a person to greet. To learn how this action was built, see "[Creating a Docker container action](https://help.github.com/en/articles/creating-a-docker-container-action)" in the GitHub Help documentation.
+This action builds sttic linked binaries for rust projects, using [clux/muslrust](https://github.com/clux/muslrust).
 
 ## Inputs
 
-### `who-to-greet`
+### cmd
 
-**Required** The name of the person to greet. Default `"World"`.
+Buld command, default to `cargo build`.
 
 ## Outputs
 
-### `time`
-
-The time we greeted you.
+None.
 
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-docker-action@master
-with:
-  who-to-greet: 'Mona the Octocat'
+name: Cargo Static Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build and Test
+      uses: zhxiaoggg/cargo-static-build-action@master
+      with:
+        cmd: cargo test
 ```

@@ -1,5 +1,9 @@
 #!/bin/sh -l
 
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
+# hack, move home to $HOME(/github/home)
+ln -s /root/.cargo $HOME/.cargo
+ln -s /root/.rustup $HOME/.rustup
+
+# go to the repo root
+cd $GITHUB_WORKSPACE
+bash -c "$*"

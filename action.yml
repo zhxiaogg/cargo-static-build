@@ -1,15 +1,12 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Cargo Static Build Action'
+description: 'Build static binaries for rust app, using MUSL'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  cmd:
+    description: 'build command'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+    default: 'cargo build'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
+  args: 
+    - ${{ inputs.cmd }}
