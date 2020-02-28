@@ -1,5 +1,7 @@
 name: 'Cargo Static Build Action'
 description: 'Build static binaries for rust app, using MUSL'
+icon: package
+color: black
 inputs:
   cmd:
     description: 'build command'
