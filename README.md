@@ -6,7 +6,7 @@ This action builds sttic linked binaries for rust projects, using [clux/muslrust
 
 ### cmd
 
-Buld command, default to `cargo build`.
+Build command, default to `cargo build`.
 
 ## Outputs
 
@@ -25,7 +25,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build and Test
-      uses: zhxiaoggg/cargo-static-build-action@master
+      uses: zhxiaogg/cargo-static-build@master
       with:
         cmd: cargo test
 ```

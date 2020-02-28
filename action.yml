@@ -1,4 +1,4 @@
-name: 'Cargo Static Build Action'
+name: 'cargo-static-build'
 description: 'Build static binaries for rust app, using MUSL'
 branding:
   icon: package
